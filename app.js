@@ -20,20 +20,36 @@ let app = express();
 
 app.use(bodyParser.json());
 
-app.post('/movies', (req, res) => {
-  let newMovie = new Movie(req.body);
-  // res.send(req.body);
+// app.post('/movies', (req, res) => {
+//   let newMovie = new Movie(req.body);
+//   // res.send(req.body);
+//
+//   newMovie.save()
+//     .then((doc) => {
+//       res.send(doc);
+//     }, (err) => {
+//       // res.send(err);
+//       res.status(400).send(err);
+//     });
+// });
 
-  newMovie.save()
-    .then((doc) => {
-      res.send(doc);
+app.get('/movies', (req, res) => {
+  Movie.find()
+    .then((docs) => {
+      res.send(docs);
     }, (err) => {
-      // res.send(err);
-      res.status(400).send(err);
+      res.send(err);
     });
 });
 
-
+// app.get('/movies', (req, res) => {
+//   Movie.find()
+//     .then((docs) => {
+//       document.body.innerHTML(`Found: ${docs}`);
+//     }, (err) => {
+//       console.log(`Error: ${err}`);
+//     });
+// })
 
 // app.post('/movies', (req, res) => {
 //   let newMovie = new Movie({
