@@ -59,20 +59,22 @@ app.use(bodyParser.json());
 //     });
 // });
 
+//DELETE BY ID
+// app.delete('/movies/:id', (req, res) => {
+//   Movie.findByIdAndRemove(req.params.id)
+//     .then((docs) => {
+//       if (!docs) {
+//         res.send('Nothing found');
+//         return;
+//       }
+//       res.send(docs);
+//     }, (err) => {
+//       res.status(400).send(err.message);
+//     });
+// });
+////DELETE BY ID
 
-app.delete('/movies/:id', (req, res) => {
-  Movie.findByIdAndRemove(req.params.id)
-    .then((docs) => {
-      if (!docs) {
-        res.send('Nothing found');
-        return;
-      }
-      res.send(docs);
-    }, (err) => {
-      res.status(400).send(err.message);
-    });
-});
-
+//SAVES NEW MOVIE
 // app.post('/movies', (req, res) => {
 //   let newMovie = new Movie({
 //     title: 'Test 3',
@@ -88,6 +90,49 @@ app.delete('/movies/:id', (req, res) => {
 //   });
 
 // });
+//SAVES NEW MOVIE
+
+//PATCH
+// app.patch('/movies/:id', (req, res) => {
+//   Movie.findOneAndUpdate({
+//       _id: req.params.id
+//     }, {
+//       $set: {
+//         title: 'This was set through patch'
+//       }
+//     }, {
+//       returnOriginal: false
+//     })
+//     .then((docs) => {
+//       if (!docs) {
+//         res.send('Nothing found');
+//         return;
+//       }
+//       res.send(docs);
+//     }, (err) => {
+//       res.status(400).send(err.message);
+//     });
+// });
+//PATCH
+
+
+//POST
+// app.post('/users', (req, res) => {
+//   let newUser = new User({
+//     email: 'Post test',
+//     password: 'password'
+//   });
+//
+//   newUser.save()
+//     .then((doc) => {
+//       res.send(`saved! \n version: ${doc.__v} \n email: ${doc.email} \n password: ${doc.password}`);
+//     }, (err) => {
+//       res.send(err);
+//     });
+// });
+
+//POST
+
 
 app.listen(3000, () => {
   console.log('listening on port 3000');
