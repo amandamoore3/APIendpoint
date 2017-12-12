@@ -33,23 +33,45 @@ app.use(bodyParser.json());
 //     });
 // });
 
-app.get('/movies', (req, res) => {
-  Movie.find()
-    .then((docs) => {
-      res.send(docs);
-    }, (err) => {
-      res.send(err);
-    });
-});
-
 // app.get('/movies', (req, res) => {
 //   Movie.find()
 //     .then((docs) => {
-//       document.body.innerHTML(`Found: ${docs}`);
+//       res.send(docs);
 //     }, (err) => {
-//       console.log(`Error: ${err}`);
+//       res.send(err);
 //     });
-// })
+// });
+
+// app.get('/movies/:id', (req, res) => {
+//   res.send(req.params);
+// });
+
+// app.get('/movies/:id', (req, res) => {
+//   Movie.findById(req.params.id)
+//     .then((docs) => {
+//       if (!docs) {
+//         res.send('Nothing found');
+//         return;
+//       }
+//       res.send(docs);
+//     }, (err) => {
+//       res.status(400).send(err.message);
+//     });
+// });
+
+
+app.delete('/movies/:id', (req, res) => {
+  Movie.findByIdAndRemove(req.params.id)
+    .then((docs) => {
+      if (!docs) {
+        res.send('Nothing found');
+        return;
+      }
+      res.send(docs);
+    }, (err) => {
+      res.status(400).send(err.message);
+    });
+});
 
 // app.post('/movies', (req, res) => {
 //   let newMovie = new Movie({
