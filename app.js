@@ -133,7 +133,7 @@ app.post('/search', (req, res) => {
 });
 //SEARCH
 
-app.listen(3000, () => {
+app.listen(port, () => {
   console.log('listening on port 3000');
 });
 
