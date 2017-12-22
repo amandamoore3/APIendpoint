@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Movies List</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <h1>One Movie</h1>
+
+
+    <div>
+
+    Title:<input id ="title" type="text"value="{{movies.title}}"><br />
+    Year:<input id ="year" type="text"value="{{movies.year}}"><br />
+    Genre:<input id ="genre" type="text"value="{{movies.genre}}"><br/>
+    <input id ="movieId" class='hidden' type="text"value="{{movies._id}}"><br />
+
+      <button id="updateBtn">Update</button> <br /><br /> <br />
+      <button type="button" id="deleteBtn">Delete</button>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="/scripts.js"></script>
+  </body>
+</html>
